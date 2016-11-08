@@ -9,31 +9,28 @@ var chokidar = require('chokidar');
 var glob = require("glob");
 
 
-
-
-
-var specialReactNative = {
-    'transform': function (value) {
-        // todo fix
-        return value;
-    },
-    // fix react-native
-    __$$: function (property, value) {
-        switch (property){
-            case 'shadow-radius':
-            case 'elevation':
-            case 'margin-horizontal':
-            case 'margin-vertical':
-            case 'padding-horizontal':
-            case 'padding-vertical':
-            case 'text-shadow-radius':
-                return parseFloat(value.replace(/px|\s*/g, ''));
-                break;
-
-        }
-        return void (0);
-    }
-}
+// var specialReactNative = {
+//     'transform': function (value) {
+//         // todo fix
+//         return value;
+//     },
+//     // fix react-native
+//     __$$: function (property, value) {
+//         switch (property){
+//             case 'shadow-radius':
+//             case 'elevation':
+//             case 'margin-horizontal':
+//             case 'margin-vertical':
+//             case 'padding-horizontal':
+//             case 'padding-vertical':
+//             case 'text-shadow-radius':
+//                 return parseFloat(value.replace(/px|\s*/g, ''));
+//                 break;
+//
+//         }
+//         return void (0);
+//     }
+// }
 
 
 export default class Project{
@@ -47,12 +44,12 @@ export default class Project{
             useEs6: true,        // 以es6输出
             tsAble:false,        // 是否支持typescript
             literalObject: true, // 不包括reactnative StyleSheet处理
-            specialReactNative: {} // 扩展reactNative样式处理
+            specialParse: []     // 特殊处理
         }, options);
 
         this.options.suffix = this.options.suffix[0] !== '.' ? '.' + this.options.suffix : this.options.suffix;
 
-        specialReactNative = Object.assign(specialReactNative, options.specialReactNative);
+        specialParse = Object.assign(specialParse, options.specialParse);
 
         ['parseCSS','watchAction'].forEach((item)=>{
             this[item] = this[item].bind(this)

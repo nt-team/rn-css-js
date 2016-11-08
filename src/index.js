@@ -55,7 +55,7 @@ export default class ReactNativeCss {
         } else {
             let data = utils.readFileSync(inputPut);
             let styleSheet = this.toJSS(data, specialParse);
-            parseResult = utils.outputReactFriendlyStyle(styleSheet, output, prettyPrint, literalObject, useEs6, tsAble);
+            parseResult = utils.outputReactFriendlyStyle(styleSheet, outPut, prettyPrint, literalObject, useEs6, tsAble);
             if (cb) {
                 cb(styleSheet, data);
             }

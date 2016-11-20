@@ -41,7 +41,7 @@ module.exports = function(keys) {
             color = values[3];
             opacity = 1;
         } else {
-            colorRaw = values[3].replace(/\s/g, "").replace("rgba(", "").replace(")", "").split(",");
+            let colorRaw = values[3].replace(/\s/g, "").replace("rgba(", "").replace(")", "").split(",");
             color = "rgb("+colorRaw[0]+","+colorRaw[1]+","+colorRaw[2]+")";
             opacity = colorRaw[3];
         }

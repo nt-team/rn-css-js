@@ -1,6 +1,6 @@
 {
   "name": "rn-css-js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "rn css to js",
   "main": "index.js",
   "scripts": {

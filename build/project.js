@@ -64,8 +64,6 @@ var Project = function () {
 
         this.options.suffix = this.options.suffix[0] !== '.' ? '.' + this.options.suffix : this.options.suffix;
 
-        specialParse = Object.assign(specialParse, options.specialParse);
-
         ['parseCSS', 'watchAction'].forEach(function (item) {
             _this[item] = _this[item].bind(_this);
         });

@@ -49,7 +49,6 @@ export default class Project{
 
         this.options.suffix = this.options.suffix[0] !== '.' ? '.' + this.options.suffix : this.options.suffix;
 
-        specialParse = Object.assign(specialParse, options.specialParse);
 
         ['parseCSS','watchAction'].forEach((item)=>{
             this[item] = this[item].bind(this)
